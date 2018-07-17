@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { List, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
-import { List, ListSubheader, Grid } from "@material-ui/core";
-import { fetchTodos } from "../actions/TodoActions";
+
+import { fetchTodos } from "../../actions/TodoActions";
+import { toogleSideBar } from "../../actions/SideBarActions";
 import TodoItem from './TodoItem';
+import TodoHeader from "./TodoHeader";
 
 class Todos extends Component {
 
@@ -17,27 +20,21 @@ class Todos extends Component {
 
     const todos = this.props.todos;
 
-    const handleTodoItems = todos.map(todo => (
+    const handleTodos = todos.map(todo => (
       <TodoItem key={todo.id} todo={todo} />
     ));
 
-    const style = {
-      maxWidth: '500px'
-    }
-
-  const subheader = (<div style={{textAlign: 'center'}}><h3 >Todo List</h3><hr /></div>);
+    const subheader = TodoHeader(this.props);
 
     return (
       <Grid container spacing={24}>
-        <Grid item xs>
-        </Grid>
+        <Grid item xs />
         <Grid item xs>
           <List subheader={subheader}>
-            {handleTodoItems}
+            {handleTodos}
           </List>
         </Grid>
-        <Grid item xs>
-        </Grid>
+        <Grid item xs />
       </Grid>
     )
   }
@@ -49,7 +46,11 @@ const mapProps = state => ({
 
 Todos.propTypes = {
   fetchTodos: PropTypes.func.isRequired,
+  toogleSideBar: PropTypes.func.isRequired,
   todos: PropTypes.array.isRequired
 }
 
-export default connect(mapProps, { fetchTodos })(Todos);
+export default connect(mapProps, { 
+  fetchTodos,
+  toogleSideBar
+})(Todos);

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { IconButton, ListItem, ListItemText, ListItemSecondaryAction } from "@material-ui/core";
+import { IconButton, ListItem } from "@material-ui/core";
+import { ListItemText, ListItemSecondaryAction } from "@material-ui/core";
 import { Close as CloseIcon } from "@material-ui/icons";
-import { removeTodo } from "../actions/TodoActions";
+import PropTypes from "prop-types";
+
+import { removeTodo } from "../../actions/TodoActions";
 
 class TodoItem extends Component {
 
@@ -25,14 +27,6 @@ class TodoItem extends Component {
     )
   }
 }
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-});
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,

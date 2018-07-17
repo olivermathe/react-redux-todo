@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Todos from './components/Todos';
+
+import { SideBar, Todo } from "./components";
 
 class App extends Component {
+
   render() {
     return (
-      <Todos />
+      <div>
+        <SideBar />
+        <Todo />
+      </div>
     );
   }
 }
