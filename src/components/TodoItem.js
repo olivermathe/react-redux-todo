@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { IconButton, ListItem, ListItemText, ListItemSecondaryAction } from "@material-ui/core";
+import { Close as CloseIcon } from "@material-ui/icons";
 import { removeTodo } from "../actions/TodoActions";
 
 class TodoItem extends Component {
@@ -12,10 +14,25 @@ class TodoItem extends Component {
     const onDeleteTodo = id => this.props.removeTodo(id);
 
     return (
-      <li><strong>{todo.title}</strong> <button onClick={onDeleteTodo.bind(this, todo.id)}>X</button></li>
+      <ListItem>
+        <ListItemText primary={todo.title} />
+        <ListItemSecondaryAction>
+          <IconButton aria-label="Remove">
+            <CloseIcon onClick={onDeleteTodo.bind(this, todo.id)} />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
     )
   }
 }
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+  },
+});
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
