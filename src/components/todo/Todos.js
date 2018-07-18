@@ -27,14 +27,14 @@ class Todos extends Component {
     const subheader = TodoHeader(this.props);
 
     return (
-      <Grid container spacing={24}>
-        <Grid item xs />
-        <Grid item xs>
+      <Grid container>
+        <Grid item lg />
+        <Grid item sm >
           <List subheader={subheader}>
             {handleTodos}
           </List>
         </Grid>
-        <Grid item xs />
+        <Grid item lg />
       </Grid>
     )
   }

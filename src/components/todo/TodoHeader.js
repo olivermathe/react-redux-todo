@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, IconButton } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
 
-const TodoHeader = (props) => (
+const TodoHeader = props => (
   <div>
     <Grid container spacing={24} >
       <Grid item xs >
