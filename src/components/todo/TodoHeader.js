@@ -6,8 +6,8 @@ const TodoHeader = props => (
   <div>
     <Grid container spacing={24} >
       <Grid item xs >
-        <IconButton >
-          <MenuIcon onClick={props.toogleSideBar}/>
+        <IconButton onClick={props.toogleSideBar}>
+          <MenuIcon />
         </IconButton>
       </Grid>
       <Grid item xs style={{textAlign: 'center'}} >
