@@ -19,7 +19,7 @@ class TodoItem extends Component {
       <ListItem>
         <ListItemText primary={todo.title} />
         <ListItemSecondaryAction>
-          <IconButton aria-label="Remove" onClick={onDeleteTodo.bind(this, todo.id)}>
+          <IconButton color="secondary" aria-label="Remove" onClick={onDeleteTodo.bind(this, todo.id)}>
             <CloseIcon />
           </IconButton>
         </ListItemSecondaryAction>
