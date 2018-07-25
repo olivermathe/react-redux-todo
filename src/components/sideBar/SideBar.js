@@ -9,8 +9,6 @@ import { fetchSideBarItems, toogleSideBar } from "../../actions/SideBarActions";
 
 class SideBar extends Component {
 
-  // class config [methods, state]
-
   componentWillMount() {
 
     this.props.fetchSideBarItems();
@@ -19,31 +17,35 @@ class SideBar extends Component {
 
   render() {
 
-    // variables to 'html' body
-
-    const { isOpen, items, classes } = this.props;
+    const { isOpen, items } = this.props;
     
-    const paper = {
-      paper: classes.drawer
+    const classes = {
+      paper: this.props.classes.drawer
     }
 
     const modalProps = {
       keepMounted: true
     }
 
-    // 'html' body
-
     return (
-      <SwipeableDrawer ModalProps={modalProps} classes={paper} open={isOpen} onOpen={this.props.toogleSideBar} onClose={this.props.toogleSideBar}>
-        <div tabIndex={0} role="button" onClick={this.props.toogleSideBar}>
+      <SwipeableDrawer 
+        ModalProps={modalProps} 
+        classes={classes} 
+        open={isOpen} 
+        onOpen={this.props.toogleSideBar} 
+        onClose={this.props.toogleSideBar}>
+
+        <div 
+          tabIndex={0} role="button" 
+          onClick={this.props.toogleSideBar}>
+
           <BarList items={items}/>
         </div>
+
       </SwipeableDrawer>
-    );
+    )
   }
 }
-
-// variables to final config
 
 const mapProps = state => ({
   items: state.sideBar.items,
@@ -53,11 +55,10 @@ const mapProps = state => ({
 const styles = {
   drawer: {
     width: 250,
-    height: '100%'
+    height: '100%',
+    background: '#2196f3'
   }
 }
-
-// final config to export
 
 SideBar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
