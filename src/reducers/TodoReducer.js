@@ -1,34 +1,34 @@
 import { FETCH_TODOS, REMOVE_TODO } from "../actions/Types";
 
 const defaultState = {
-    items: []
+  items: []
 };
 
 export default (state = defaultState, action) => {
 
-    switch (action.type) {
-        case FETCH_TODOS:
-            return {
-                ...state,
-                items: action.payload
-            }
+  switch (action.type) {
+    case FETCH_TODOS:
+      return {
+        ...state,
+        items: action.payload
+      }
 
-        case REMOVE_TODO:
+    case REMOVE_TODO:
 
-            let items = state.items;
+      let items = state.items;
 
-            const index = items.findIndex(item => item.id === action.id);
+      const index = items.findIndex(item => item.id === action.id);
 
-            return {
-                ...state,
-                items: [
-                    ...items.slice(0, index),
-                    ...items.slice(index +1)
-                ]
-            }
-    
-        default:
-            return state;
-    }
+      return {
+        ...state,
+        items: [
+          ...items.slice(0, index),
+          ...items.slice(index +1)
+        ]
+      }
+
+    default:
+      return state;
+  }
 
 }

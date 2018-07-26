@@ -3,6 +3,6 @@ import TodoReducer from "./TodoReducer";
 import SideBarReducer from "./SideBarReducer";
 
 export default combineReducers({
-    todo: TodoReducer,
-    sideBar: SideBarReducer
+  todo: TodoReducer,
+  sideBar: SideBarReducer
 })

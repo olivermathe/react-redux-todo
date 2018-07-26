@@ -6,8 +6,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-    <Provider store={Store}>
-        <App />
-    </Provider>
-    , document.getElementById('root'));
+  <Provider store={Store}>
+    <App />
+  </Provider>, 
+  document.getElementById('root')
+);
+
 registerServiceWorker();
