@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div>
         <SideBar />
-        <Todo />
+        {/* <Todo /> */}
       </div>
     );
   }
