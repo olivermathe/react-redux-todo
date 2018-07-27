@@ -10,7 +10,7 @@ import TodoHeader from "./TodoHeader";
 
 class Todos extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
 
     this.props.fetchTodos();
 
@@ -22,7 +22,7 @@ class Todos extends Component {
         <Grid item lg />
         <Grid item sm >
           <List subheader={<TodoHeader onOpenMenu={this.props.toogleSideBar}/>}>
-            {this.props.todos.map(todo => (
+            {this.props.todos && this.props.todos.map(todo => (
               <TodoItem key={todo.id} todo={todo} onDeleteTodo={this.props.removeTodo}/>
             ))}
           </List>
